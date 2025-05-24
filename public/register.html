@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Freelancer Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Register</h2>
+            <div class="user-type-selector">
+                <button class="type-btn active" data-type="freelancer">Freelancer</button>
+                <button class="type-btn" data-type="employer">Employer</button>
+            </div>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <!-- Freelancer specific fields -->
+                <div id="freelancerFields">
+                    <div class="form-group">
+                        <label for="domain">Domain</label>
+                        <input type="text" id="domain" name="domain">
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <input type="text" id="skills" name="skills" placeholder="e.g., Web Development, Design">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile">Profile</label>
+                        <textarea id="profile" name="profile" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio Link (Optional)</label>
+                        <input type="url" id="portfolio" name="portfolio">
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Experience (years)</label>
+                        <input type="number" id="experience" name="experience" min="0" step="1" placeholder="e.g., 2">
+                    </div>
+                </div>
+
+                <!-- Employer specific fields -->
+                <div id="employerFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" id="companyName" name="companyName">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="">Select a category</option>
+                            <option value="technology">Technology</option>
+                            <option value="design">Design</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="writing">Writing</option>
+                            <option value="finance">Finance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyDescription">Company Description</label>
+                        <textarea id="companyDescription" name="companyDescription" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <p class="switch-form">Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html> 

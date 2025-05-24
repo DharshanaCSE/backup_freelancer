@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs - SkillBee</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="freelancer-home.css">
+    <style>
+        .jobs-list-section { 
+            max-width: 900px; 
+            margin: 110px auto 0 auto; 
+            background: #fff; 
+            border-radius: 24px; 
+            box-shadow: 0 4px 32px rgba(255,215,0,0.10); 
+            padding: 40px 30px; 
+        }
+        .jobs-list-header { 
+            font-size: 2em; 
+            font-weight: 800; 
+            color: #222; 
+            margin-bottom: 24px; 
+            text-align: center; 
+        }
+        .job-card { 
+            background: #fffbe7; 
+            border-radius: 14px; 
+            box-shadow: 0 2px 12px rgba(255,215,0,0.08); 
+            padding: 22px 18px 18px 18px; 
+            margin-bottom: 18px; 
+        }
+        .job-title { 
+            font-size: 1.15em; 
+            font-weight: 700; 
+            color: #222; 
+            margin-bottom: 4px; 
+        }
+        .job-budget { 
+            color: #FFD700; 
+            font-weight: 700; 
+            font-size: 1.08em; 
+            margin-bottom: 8px; 
+        }
+        .job-timeline { 
+            color: #888; 
+            font-size: 0.98em; 
+            margin-bottom: 2px; 
+        }
+        .job-description { 
+            color: #444; 
+            font-size: 1em; 
+            margin-bottom: 6px; 
+        }
+        .job-additional-info { 
+            color: #666; 
+            font-size: 0.98em; 
+            margin-bottom: 6px; 
+        }
+        .job-employer {
+            color: #666;
+            font-size: 0.98em;
+            margin-bottom: 12px;
+        }
+        .view-employer-btn {
+            background: #FFD700;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 22px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .view-employer-btn:hover {
+            background: #FFB700;
+        }
+        .apply-job-btn {
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 22px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .apply-job-btn:hover {
+            background: #45a049;
+        }
+        .apply-job-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        #applicationMsg {
+            text-align: center;
+            margin-top: 20px;
+            color: #388e3c;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="bgr-bee.png" alt="SkillBee Logo" height="40">
+            <span class="brand">SkillBee</span>
+        </div>
+        <nav class="nav-links">
+            <a href="freelancer-home.html" class="nav-btn">Home</a>
+        </nav>
+    </header>
+    <main>
+        <section class="jobs-list-section">
+            <div class="jobs-list-header">Find Jobs Matching Your Domain</div>
+            <div id="jobsListContainer">
+                <!-- Job cards will be inserted here -->
+            </div>
+            <div id="applicationMsg"></div>
+        </section>
+    </main>
+    <script src="find_jobs.js"></script>
+</body>
+</html> 

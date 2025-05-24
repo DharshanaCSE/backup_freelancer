@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBee - Employer Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="employer-profile.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="bgr-bee.png" alt="SkillBee Logo" height="40">
+            <span class="brand">SkillBee</span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn" id="homeBtn">Home</button>
+        </nav>
+    </header>
+    <main class="profile-main">
+        <section class="profile-header">
+            <div class="profile-image-container">
+                <img id="profileImage" src="default-profile.png" alt="Profile Image">
+                <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+                <button id="uploadBtn" class="upload-btn">Upload Image</button>
+            </div>
+            <div class="profile-info">
+                <h1 id="profileName">Company Name</h1>
+                <div id="companyName" class="profile-domain">Company Name</div>
+                <div class="profile-stats">
+                    <span><span id="activeJobs">0</span> Active Jobs</span>
+                    <span><span id="totalHires">0</span> Total Hires</span>
+                </div>
+                <div class="profile-actions">
+                    <button class="edit-profile-btn" id="editProfileBtn">
+                        <span class="material-icons" style="vertical-align: middle;">edit</span> Edit Profile
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="profile-details profile-columns">
+            <div class="profile-left">
+                <h2 id="companyNameHeading" class="company-name-heading"></h2>
+                <div class="profile-card">
+                    <h3>About Company</h3>
+                    <p id="about">No company description provided</p>
+                </div>
+                <div class="profile-card">
+                    <h3>Company Details</h3>
+                    <p><b>Company Size:</b> <span id="companySize">Not specified</span></p>
+                    <p><b>Industry:</b> <span id="industry">Not specified</span></p>
+                    <p><b>Location:</b> <span id="location">Not specified</span></p>
+                </div>
+            </div>
+            <div class="profile-right">
+                <!-- Remove the entire <div class="profile-card"> for Company Stats and Company Reviews in the profile-right column -->
+            </div>
+        </section>
+        <!-- Jobs Posted Section -->
+        <section class="jobs-section">
+            <div class="jobs-header">
+                <h2>Jobs Posted</h2>
+                <button class="add-job-btn" id="addJobBtn">Add Job</button>
+            </div>
+            <div id="jobsContainer" class="jobs-container">
+                <!-- Job cards will be inserted here -->
+            </div>
+        </section>
+        <!-- Active Workers Section -->
+        <section class="active-workers-section">
+            <div class="section-header">
+                <h2>Active Workers</h2>
+            </div>
+            <div id="activeWorkersContainer" class="active-workers-container">
+                <!-- Active worker cards will be inserted here -->
+            </div>
+        </section>
+        <!-- Job Modal -->
+        <div id="jobModal" class="job-modal">
+            <div class="job-modal-content">
+                <span class="close-modal" id="closeJobModal">&times;</span>
+                <h3 id="jobModalTitle">Add Job</h3>
+                <form id="jobForm">
+                    <input type="hidden" id="jobId" name="jobId">
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" id="jobTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobDescription">Job Description</label>
+                        <textarea id="jobDescription" name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobBudget">Budget</label>
+                        <input type="number" id="jobBudget" name="budget" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTimeline">Timeline (days)</label>
+                        <input type="number" id="jobTimeline" name="timeline" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobAdditionalInfo">Additional Information</label>
+                        <textarea id="jobAdditionalInfo" name="additional_info" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobCategory">Category (Domain)</label>
+                        <input type="text" id="jobCategory" name="category" required>
+                    </div>
+                    <button type="submit" class="save-job-btn">Save</button>
+                    <div id="jobFormMsg" class="job-form-msg"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Profile Edit Modal -->
+    <div id="editProfileModal" class="profile-modal">
+        <div class="profile-modal-content">
+            <span class="close-modal" id="closeEditProfileModal">&times;</span>
+            <h3>Edit Profile</h3>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label for="editProfileName">Company Name</label>
+                    <input type="text" id="editProfileName" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editProfileAbout">About</label>
+                    <textarea id="editProfileAbout" name="companyDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editProfileSize">Company Size</label>
+                    <input type="text" id="editProfileSize" name="companySize">
+                </div>
+                <div class="form-group">
+                    <label for="editProfileIndustry">Industry</label>
+                    <input type="text" id="editProfileIndustry" name="industry">
+                </div>
+                <div class="form-group">
+                    <label for="editProfileLocation">Location</label>
+                    <input type="text" id="editProfileLocation" name="location">
+                </div>
+                <button type="submit" class="save-profile-btn">Save</button>
+                <div id="editProfileMsg" class="profile-form-msg"></div>
+            </form>
+        </div>
+    </div>
+    <!-- Review Modal -->
+    <div id="reviewModal" class="profile-modal">
+        <div class="profile-modal-content">
+            <span class="close-modal" id="closeReviewModal">&times;</span>
+            <h3>Rate & Review Freelancer</h3>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div id="starRating" class="star-rating">
+                        <!-- Stars will be rendered here -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Review</label>
+                    <textarea id="reviewText" name="reviewText" rows="3" maxlength="500" required></textarea>
+                </div>
+                <button type="submit" class="save-profile-btn">Submit Review</button>
+                <div id="reviewFormMsg" class="profile-form-msg"></div>
+            </form>
+        </div>
+    </div>
+    <script src="employer_profile.js"></script>
+</body>
+</html> 

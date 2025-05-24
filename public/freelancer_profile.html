@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBee - Freelancer Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="freelancer-profile.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="bgr-bee.png" alt="SkillBee Logo" height="40">
+            <span class="brand">SkillBee</span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn" id="homeBtn">Home</button>
+        </nav>
+    </header>
+    <main class="profile-main">
+        <section class="profile-header">
+            <div class="profile-image-container">
+                <img id="profileImage" src="default-profile.png" alt="Profile Image">
+                <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+                <button id="uploadBtn" class="upload-btn">Upload Image</button>
+            </div>
+            <div class="profile-info">
+                <h1 id="profileName">Freelancer Name</h1>
+                <div id="profileDomain" class="profile-domain">Domain</div>
+                <div class="profile-stats">
+                    <span><span id="jobsCompleted">0</span> Jobs Completed</span>
+                    <span><span id="activeJobs">0</span> Active Jobs</span>
+                    <span><span id="averageRating">0.0</span> Client Rating</span>
+                </div>
+                <div id="profileExperience" class="profile-experience">Experience: Not mentioned</div>
+                <div class="profile-actions">
+                    <button class="edit-profile-btn" id="editProfileBtn">
+                        <span class="material-icons" style="vertical-align: middle;">edit</span> Edit Profile
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="profile-details profile-columns">
+            <div class="profile-left">
+            <div class="profile-card">
+                <h3>About</h3>
+                <p id="about">No description provided</p>
+            </div>
+            <div class="profile-card">
+                <h3>Skills</h3>
+                <p id="skills">No skills added yet</p>
+            </div>
+            </div>
+            <div class="profile-right">
+            <div class="profile-card">
+                <h3>Portfolio</h3>
+                <p id="portfolio">No portfolio link added yet</p>
+                </div>
+            </div>
+        </section>
+        <!-- My Gigs Section -->
+        <section class="gigs-section">
+            <div class="gigs-header">
+                <h2>My Gigs</h2>
+                <button class="add-gig-btn" id="addGigBtn">Add Gig</button>
+            </div>
+            <div id="gigsContainer" class="gigs-container">
+                <!-- Gig cards will be inserted here -->
+            </div>
+        </section>
+        <!-- Messages Section -->
+        <section class="messages-section">
+            <h2>Messages</h2>
+            <div id="messagesList" class="messages-list">
+                <!-- Chat partner cards will be inserted here -->
+            </div>
+        </section>
+        <!-- Active Jobs Section -->
+        <section class="active-jobs-section">
+            <h2>Active Jobs</h2>
+            <div id="activeJobsSection" class="active-jobs-list">
+                <!-- Active job cards will be inserted here -->
+            </div>
+        </section>
+        <!-- Client Reviews Section -->
+        <section class="reviews-section">
+            <h2>Client Reviews</h2>
+            <div id="reviewsList" class="reviews-list">
+                <!-- Reviews will be inserted here -->
+            </div>
+        </section>
+        <!-- Gig Modal -->
+        <div id="gigModal" class="gig-modal">
+            <div class="gig-modal-content">
+                <span class="close-modal" id="closeGigModal">&times;</span>
+                <h3 id="gigModalTitle">Add Gig</h3>
+                <form id="gigForm">
+                    <input type="hidden" id="gigId" name="gigId">
+                    <div class="form-group">
+                        <label for="gigTitle">Title</label>
+                        <input type="text" id="gigTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gigDescription">Description</label>
+                        <textarea id="gigDescription" name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="gigPrice">Price</label>
+                        <input type="number" id="gigPrice" name="price" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gigCategory">Category</label>
+                        <input type="text" id="gigCategory" name="category" required>
+                    </div>
+                    <button type="submit" class="save-gig-btn">Save</button>
+                    <div id="gigFormMsg" class="gig-form-msg"></div>
+                </form>
+            </div>
+        </div>
+        <!-- Profile Edit Modal -->
+        <div id="editProfileModal" class="profile-modal">
+            <div class="profile-modal-content">
+                <span class="close-modal" id="closeEditProfileModal">&times;</span>
+                <h3>Edit Profile</h3>
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label for="editProfileName">Name</label>
+                        <input type="text" id="editProfileName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editProfileAbout">About</label>
+                        <textarea id="editProfileAbout" name="about" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editProfileSkills">Skills (comma separated)</label>
+                        <input type="text" id="editProfileSkills" name="skills">
+                    </div>
+                    <div class="form-group">
+                        <label for="editProfilePortfolio">Portfolio Link</label>
+                        <input type="text" id="editProfilePortfolio" name="portfolio">
+                    </div>
+                    <div class="form-group">
+                        <label for="editProfileExperience">Experience (years)</label>
+                        <input type="number" id="editProfileExperience" name="experience" min="0" step="1" placeholder="e.g., 2">
+                    </div>
+                    <button type="submit" class="save-profile-btn">Save</button>
+                    <div id="editProfileMsg" class="profile-form-msg"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="freelancer_profile.js"></script>
+</body>
+</html> 

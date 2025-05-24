@@ -1,0 +1,213 @@
+body {
+    background: #fffbe7;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.navbar {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: #fffbe7;
+    box-shadow: 0 2px 12px rgba(255, 215, 0, 0.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.brand {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #FFD700;
+    letter-spacing: 1px;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.nav-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+}
+.nav-btn.active, .nav-btn:hover {
+    background: linear-gradient(90deg, #FFD700 60%, #FFB700 100%);
+    color: #fff;
+}
+.signout-btn {
+    background: #FFD700;
+    color: #333;
+    border: none;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.signout-btn:hover {
+    background: #FFB700;
+    color: #fff;
+}
+
+.dashboard-main {
+    max-width: 900px;
+    margin: 100px auto 0 auto;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(255, 215, 0, 0.10);
+    border-radius: 24px;
+    min-height: 80vh;
+    padding-bottom: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 36px;
+}
+.welcome-section h1 {
+    font-size: 2.7em;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+.welcome-section span {
+    color: #FFD700;
+    font-weight: 900;
+}
+.welcome-section p {
+    color: #555;
+    font-size: 1.18em;
+    margin-bottom: 0;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 38px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    background: #fffbe7;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(255, 215, 0, 0.10);
+    padding: 32px 44px;
+    min-width: 170px;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.stat-card:hover {
+    box-shadow: 0 6px 24px rgba(255, 215, 0, 0.18);
+    transform: translateY(-3px) scale(1.03);
+}
+.stat-label {
+    color: #888;
+    font-size: 1.08em;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.stat-value {
+    color: #FFD700;
+    font-size: 2.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.suggested-jobs-section {
+    background: #fff9d6;
+    border-radius: 16px;
+    padding: 32px 34px;
+    margin: 0 auto 32px auto;
+    box-shadow: none;
+    max-width: 900px;
+}
+.suggested-jobs-section h2 {
+    color: #222;
+    font-size: 1.35em;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+#suggestedJobs {
+    color: #888;
+    font-size: 1.13em;
+}
+
+.community-section {
+    background: none;
+    text-align: center;
+    margin-top: 18px;
+    padding-bottom: 32px;
+}
+.community-section h3 {
+    color: #FFC107;
+    font-size: 1.25em;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.community-section p {
+    color: #444;
+    font-size: 1.08em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+    .dashboard-main {
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .suggested-jobs-section {
+        max-width: 98vw;
+        padding: 18px 8px;
+    }
+}
+@media (max-width: 700px) {
+    .stats-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .stat-card {
+        min-width: 80vw;
+        padding: 22px 10px;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 10px;
+        position: static;
+    }
+    .nav-links {
+        gap: 10px;
+        margin-top: 8px;
+    }
+    .welcome-section {
+        padding-top: 18px;
+    }
+} 

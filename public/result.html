@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Freelancers - SkillBee</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="bgr-bee.png" alt="SkillBee Logo" height="40">
+            <span class="brand">SkillBee</span>
+        </div>
+        <nav class="nav-links">
+            <button class="back-btn" id="backToHomeBtn">Back to Home</button>
+        </nav>
+    </header>
+    <main class="result-main">
+        <div class="search-filter-section">
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Search freelancers...">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+            <div class="filters">
+                <select id="domainFilter">
+                    <option value="">All Domains</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Mobile Development">Mobile Development</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="Data Science">Data Science</option>
+                </select>
+                <select id="experienceFilter">
+                    <option value="">All Experience</option>
+                    <option value="1">1+ years</option>
+                    <option value="3">3+ years</option>
+                    <option value="5">5+ years</option>
+                    <option value="10">10+ years</option>
+                </select>
+                <select id="ratingFilter">
+                    <option value="">All Ratings</option>
+                    <option value="3">3+ stars</option>
+                    <option value="4">4+ stars</option>
+                    <option value="4.5">4.5+ stars</option>
+                </select>
+            </div>
+        </div>
+        <div class="results-section">
+            <div class="freelancer-grid">
+                <!-- Freelancer cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+    <script src="result.js"></script>
+</body>
+</html> 

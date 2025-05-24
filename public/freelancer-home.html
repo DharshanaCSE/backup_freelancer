@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Home - SkillBee</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="freelancer-home.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="bgr-bee.png" alt="SkillBee Logo" height="40">
+            <span class="brand">SkillBee</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="nav-btn" id="profileBtn">My Profile</a>
+            <a href="#" class="nav-btn" id="findJobBtn">Find Job</a>
+            <button class="signout-btn" id="signOutBtn">Sign Out</button>
+        </nav>
+    </header>
+    <main class="dashboard-main">
+        <section class="welcome-section">
+            <h1>Welcome back, <span id="freelancerName"></span></h1>
+            <p>Here's your dashboard. Track your progress, discover new jobs, and grow your freelance career with SkillBee.</p>
+        </section>
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-label">Jobs Applied</div>
+                <div class="stat-value" id="jobsApplied">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Jobs Won</div>
+                <div class="stat-value" id="jobsWon">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Profile Completeness</div>
+                <div class="stat-value" id="profileCompleteness">17%</div>
+            </div>
+        </section>
+        <section class="community-section">
+            <h3>Grow with the SkillBee Community</h3>
+            <p>Connect with other freelancers, share your experiences, and get inspired. Remember, every project is a step forward in your journey!</p>
+        </section>
+    </main>
+    <script src="freelancer-home.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        let userId = null;
+        // Fetch user info
+        try {
+            const res = await fetch('/api/freelancer/me', {
+                headers: {
+                    'Authorization': token ? `Bearer ${token}` : ''
+                }
+            });
+            if (res.ok) {
+                const user = await res.json();
+                userId = user._id;
+                // ... update UI ...
+            }
+        } catch (err) { /* ... */ }
+
+        // Attach event listener regardless
+        const profileBtn = document.getElementById('profileBtn');
+        if (profileBtn) {
+            profileBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (userId) {
+                    window.location.href = `freelancer_profile.html?id=${userId}&type=freelancer`;
+                }
+            });
+        }
+        // ... sign out code ...
+    });
+    </script>
+</body>
+</html> 
